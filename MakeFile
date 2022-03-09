@@ -1,0 +1,7 @@
+.PHONY: config kustomize
+
+config:
+	./config.sh
+
+kustomize:
+	kubectl kustomize ./
