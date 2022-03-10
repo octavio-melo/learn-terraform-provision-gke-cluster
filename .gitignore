@@ -3,3 +3,6 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 .terraform/plugins/selections.json
 .terraform/plugins/registry.terraform.io/hashicorp/google/3.52.0/darwin_amd64/terraform-provider-google_v3.52.0_x5
+terraform/.terraform/plugins/selections.json
+terraform/.terraform/plugins/registry.terraform.io/hashicorp/google/3.52.0/darwin_amd64/terraform-provider-google_v3.52.0_x5
+terraform/.terraform/plugins/registry.terraform.io/hashicorp/kubernetes/2.8.0/darwin_amd64/terraform-provider-kubernetes_v2.8.0_x5

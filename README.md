@@ -10,14 +10,16 @@ required but highly recommended to keep your GKE cluster isolated.
 If you do not already have the CLI tool kubectl installed, please follow these [instructions](https://kubernetes.io/docs/tasks/tools/) to install.
 
 
-# Configure kubectl 
+# Custom Airbyte Manifest
 
 ```
-make config
+$ sh config.sh
+$ kubectl kustomize kube/overlays/stable
+$ kubectl apply -k kube/overlays/stable
 ```
 
-After 2-5 minutes, kubectl get pods | grep airbyte should show Running as the status for all the core Airbyte pods. This may take longer on Kubernetes clusters with slow internet connections.
-
-
-# Launch Airbyte
-Now visit http://localhost:8000 in your browser and start moving some data!
+# Launch Airbyte Webapp
+````
+$ gcloud container clusters get-credentials trustly-ds-test-1-airbyte-gke --region europe-west1 --project trustly-ds-test-1 \
+ && kubectl port-forward $(kubectl get pod --selector="airbyte=webapp" --output jsonpath='{.items[0].metadata.name}') 8080:80
+```
